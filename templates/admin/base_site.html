@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %}
+{% load static %}
+<link href="{% static 'frontend/external.css' %}" rel="stylesheet">
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}
+<style>
+body {
+    background: #f1baba;
+}
+
+h1 {
+    color: #000;
+}
+
+#header {
+    background: #34667e;
+}
+
+#branding {
+   width: 90%;
+}
+
+#site-name {
+    padding: 0px;
+    text-align: center;
+}
+
+#grp-navigation {
+    height: auto;
+}
+</style>
+
+{% endblock %}
+{% block branding %}
+
+
+<a class="logo-top" href="#">
+    <img src="{% static 'frontend/img/Logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt=""
+         loading="lazy">
+    ToreX
+</a>
+
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
